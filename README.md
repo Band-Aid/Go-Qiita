@@ -13,12 +13,13 @@ Replace AccessToken value in qiita-api.js
 commands: 
 
 - launchqiita
+Launch extension
 
 - template
-adds template header
+adds template to header
 
 - post
-post .md file to Qiita. Needs to 
+post .md file to Qiita. Needs to be .md file
 
 - update
 
