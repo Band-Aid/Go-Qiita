@@ -17,20 +17,20 @@
     "contributes": {
         "commands": [
             {
-                "command":"extension.launch",
-                "title":"launchqiita"
+                "command": "extension.launch",
+                "title": "launchqiita"
             },
             {
-                "command":"extension.createTemplate",
-                "title":"template"
+                "command": "extension.createTemplate",
+                "title": "template"
             },
             {
-                "command":"extension.post",
-                "title":"post"
+                "command": "extension.post",
+                "title": "post"
             },
             {
-                "command":"extension.update",
-                "title":"update"
+                "command": "extension.update",
+                "title": "update"
             }
         ]
     },
@@ -39,11 +39,11 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.61",
         "eslint": "^4.11.0",
-        "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+        "typescript": "^2.8.3",
+        "vscode": "^1.1.16"
     },
     "dependencies": {
         "node-rest-client": "^3.1.0"
