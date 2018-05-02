@@ -1,27 +1,30 @@
 # go-qiita README
 
-This is the README for your extension "go-qiita". After writing up a brief description, we recommend including the following sections.
-
 You can post, update Qiita posts via VSCode
 
 ## Requirements
 
 Replace AccessToken value in qiita-api.js
 
+Copy the folder under your local extensions folder:
+Windows: %USERPROFILE%\.vscode\extensions
+macOS/Linux: $HOME/.vscode/extensions
+
 ## Features 
 
 commands: 
 
-- launchqiita
+- qiita-launch
 Launch extension
 
-- template
+- qiita-template
 adds template to header
 
-- post
+- qiita-post
 post .md file to Qiita. Needs to be .md file
 
-- update
+- qiita-update
+Updates post.
 
 
 **Enjoy!**
