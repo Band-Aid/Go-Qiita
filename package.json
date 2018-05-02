@@ -18,19 +18,19 @@
         "commands": [
             {
                 "command": "extension.launch",
-                "title": "launchqiita"
+                "title": "qiita-launch"
             },
             {
                 "command": "extension.createTemplate",
-                "title": "template"
+                "title": "qiita-template"
             },
             {
                 "command": "extension.post",
-                "title": "post"
+                "title": "qiita-post"
             },
             {
                 "command": "extension.update",
-                "title": "update"
+                "title": "qiita-update"
             }
         ]
     },
@@ -46,6 +46,7 @@
         "vscode": "^1.1.16"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "hoek": "^4.2.1",
         "node-rest-client": "^3.1.0"
     }

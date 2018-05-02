@@ -3,6 +3,7 @@ const Client = require('node-rest-client').Client
 const client = new Client()
 const accessToken = ''
 const baseurl = 'https://qiita.com/api/v2/'
+//const QiitaRequest = require('./api-manager')
 
 class QiitaAPI{
 
