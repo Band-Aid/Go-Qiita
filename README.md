@@ -17,7 +17,7 @@ macOS/Linux: $HOME/.vscode/extensions
 6. Type  qiita-launch command. (Initialization of extension)
 7. When  qiita-template command is executed, a template is created in the first line of the file. *Described later
 8. Please add a new line after the template and start writing articles. Otherwise you can not save, (bug)
-9. You can save with the `qiita-post` command. (You need at least one tag value, please save the file as .md before posting.If you type `qiita-post` the tag values will disappear
+9. You can save with the `qiita-post` command. (You need at least one tag value, please save the file as .md before posting.
 
 ## Features 
 
