@@ -19,6 +19,16 @@ macOS/Linux: $HOME/.vscode/extensions
 8. Please add a new line after the template and start writing articles. Otherwise you can not save, (bug)
 9. You can save with the `qiita-post` command. (You need at least one tag value, please save the file as .md before posting.
 
+## Temaplte values
+
+{"id": "", "private": true, "tags": []}
+
+After posting an article, the qiita's post ID is inserted to the `id` attribute. This is used to update the article with the `qiita-update` command
+
+`Private = true` post artciles as hidden posts, false makes them public. Posts made public can not be hidden posts. (Qiita's limitation
+
+`Tag` value, as its name suggests they are category tags. You need to enclose it with "". Example: ["box", "qiita", "vscode"]
+
 ## Features 
 
 commands: 
@@ -39,6 +49,7 @@ Updates post.
 **Enjoy!**
 
 # Todo
+Updated: 
 
 1. Clean up qiita-api.js to be more clean and efficent
-1. use API-Manager.js for better handing http calls as promise
+2. With the currenty implementation Optional parameters are hard coded. Would be great to make this flexibale.
