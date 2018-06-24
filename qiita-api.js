@@ -41,7 +41,7 @@ class QiitaAPI {
         let template = { "id": data.id, "private": data.private, "tags": options.tags }
         article.edit((builder) => {
           // let startPos = article.document.positionAt(0)
-          builder.replace(new vscode.Range(0, 0, 1, 0), JSON.stringify(template))
+          builder.replace(new vscode.Range(0, 0, 1, 0), JSON.stringify(template) + '\n')
         })
       }
       else if (response.statusCode >= '400') {
