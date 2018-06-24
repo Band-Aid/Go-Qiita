@@ -71,7 +71,7 @@ class QiitaAPI {
     }
 
     client.patch(baseurl + 'items/' + options.id, args, function (data, response) {
-      if (response.statusCode == '201') {
+      if (response.statusCode == '200') {
         vscode.window.showInformationMessage('hooray! successfully uploaded')
       }
       else if (response.statusCode >= '400') {
