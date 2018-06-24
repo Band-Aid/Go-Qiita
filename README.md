@@ -29,27 +29,27 @@ After posting an article, the qiita's post ID is inserted to the `id` attribute.
 
 `Tag` value, as its name suggests they are category tags. You need to enclose it with "". Example: ["box", "qiita", "vscode"]
 
-## Features 
+## Features
 
-commands: 
+commands:
 
-- qiita-launch
+- Qiita: Launch
 Launch extension
 
-- qiita-template
+- Qiita: Template
 adds template to header
 
-- qiita-post
+- Qiita: Post
 post .md file to Qiita. Needs to be .md file
 
-- qiita-update
+- Qiita: Update
 Updates post.
 
 
 **Enjoy!**
 
 # Todo
-Updated: 
+Updated:
 
 1. Clean up qiita-api.js to be more clean and efficent
 2. With the currenty implementation Optional parameters are hard coded. Would be great to make this flexibale.
