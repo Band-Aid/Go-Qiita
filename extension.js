@@ -46,12 +46,12 @@ function activate(context) {
 
     let createTemplate = vscode.commands.registerCommand('extension.createTemplate', function () {
         let document = vscode.window.activeTextEditor
-        let template = { "id": "", "private": true, "tags": [] }
+        let template = { "id": "", "private": true, "tags": [""] }
         if (!createTemplate)
             return; // No open text editor
         document.edit((builder) => {
             let startPos = document.document.positionAt(0)
-            builder.insert(startPos, JSON.stringify(template))
+            builder.insert(startPos, JSON.stringify(template) + '\n')
         })
     })
 

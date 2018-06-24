@@ -18,19 +18,19 @@
         "commands": [
             {
                 "command": "extension.launch",
-                "title": "qiita-launch"
+                "title": "Qiita: Launch"
             },
             {
                 "command": "extension.createTemplate",
-                "title": "qiita-template"
+                "title": "Qiita: Template"
             },
             {
                 "command": "extension.post",
-                "title": "qiita-post"
+                "title": "Qiita: Post"
             },
             {
                 "command": "extension.update",
-                "title": "qiita-update"
+                "title": "Qiita: Update"
             }
         ]
     },
