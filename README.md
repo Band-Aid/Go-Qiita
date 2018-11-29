@@ -52,6 +52,8 @@ post .md file to Qiita. Needs to be .md file
 - Qiita: Update
 Updates post.
 
+- Qiita: Open
+Open published article in Qiita
 
 **Enjoy!**
 
