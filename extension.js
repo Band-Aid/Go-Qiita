@@ -36,7 +36,7 @@ function activate(context) {
             vscode.window.showInformationMessage('please save and name your file with a .md extension');
         }
         else {
-            var uploadtitle = title.replace(".md", "")
+            let uploadtitle = title.replace(".md", "")
             Qiita.post(body, uploadtitle, JSON.parse(options))
         }
 
@@ -46,7 +46,7 @@ function activate(context) {
 
     let createTemplate = vscode.commands.registerCommand('extension.createTemplate', function () {
         let document = vscode.window.activeTextEditor
-        let template = { "id": "", "private": true, "tags": [""] }
+        let template = { "id": "", "private": true, "tags": [""],"tweet": false }
         if (!createTemplate)
             return; // No open text editor
         document.edit((builder) => {
@@ -55,24 +55,37 @@ function activate(context) {
         })
     })
 
-    let fix = vscode.commands.registerCommand('extension.update', function () {
+    let update = vscode.commands.registerCommand('extension.update', function () {
         let article = vscode.window.activeTextEditor
         let firstLine = article.document.lineAt(1);
         let lastLine = article.document.lineAt(article.document.lineCount - 1);
         let textrange = new vscode.Range(1, firstLine.range.start.character, article.document.lineCount - 1, lastLine.range.end.character);
         let body = article.document.getText(textrange);
         let title = path.basename(article.document.fileName);
-        var uploadtitle = title.replace(".md", "")
+        let uploadtitle = title.replace(".md", "")
         let tagline = article.document.lineAt(1);
         let tags = article.document.getText(new vscode.Range(0, 0, 1, tagline.range.end.character))
         let options = JSON.parse(tags)
         Qiita.patch(body, uploadtitle, options)
     })
 
+    let open = vscode.commands.registerCommand('extension.open',function(){
+        let article = vscode.window.activeTextEditor
+        let tagline = article.document.lineAt(1);
+        let tags = article.document.getText(new vscode.Range(0, 0, 1, tagline.range.end.character))
+        let options = JSON.parse(tags)
+        if(!options.id)
+            return
+        else
+        vscode.commands.executeCommand('vscode.open', vscode.Uri.parse('https://qiita.com/items/'+options.id))
+    })
+
+
     context.subscriptions.push(launch)
     context.subscriptions.push(createTemplate)
     context.subscriptions.push(upload)
-    context.subscriptions.push(fix)
+    context.subscriptions.push(update)
+    context.subscriptions.push(open)
 
 }
 exports.activate = activate;

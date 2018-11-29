@@ -1,8 +1,8 @@
 {
     "name": "go-qiita",
     "displayName": "go Qiita",
-    "description": "upload new article to Qiita",
-    "version": "0.0.1",
+    "description": "upload and update articles to Qiita",
+    "version": "0.1.0",
     "publisher": "Daichi",
     "engines": {
         "vscode": "^1.21.0"
@@ -11,6 +11,7 @@
         "Other"
     ],
     "activationEvents": [
+        "onLanguage:markdown",
         "onCommand:extension.launch"
     ],
     "main": "./extension",
@@ -31,6 +32,10 @@
             {
                 "command": "extension.update",
                 "title": "Qiita: Update"
+            },
+            {
+                "command": "extension.open",
+                "title": "Qiita: Open"
             }
         ]
     },

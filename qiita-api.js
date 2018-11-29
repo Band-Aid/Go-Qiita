@@ -3,21 +3,21 @@ const Client = require('node-rest-client').Client
 const client = new Client()
 const accessToken = ''
 const baseurl = 'https://qiita.com/api/v2/'
+const settings = require('./qiita.json')
 //const QiitaRequest = require('./api-manager')
 
 class QiitaAPI {
   constructor() {
     this.headers = {
-      "Authorization": "Bearer " + accessToken,
+      "Authorization": "Bearer " + settings.QiitaAccessToken,
       "Content-Type": "application/json"
     }
   }
 
-
   post(body, title, options) {
     let tags = []
     options.tags.forEach(function (name) { tags.push({ name: name }) })
-    var args = {
+    let args = {
       data:
       {
         "body": body,
@@ -27,13 +27,12 @@ class QiitaAPI {
         "private": options.private,
         "tags": tags,
         "title": title,
-        "tweet": false
+        "tweet": options.tweet
       },
       headers: this.headers
     }
     console.log(args)
-    //    args.data.tags.push
-    var req = client.post(baseurl + 'items', args, function (data, response) {
+    let req = client.post(baseurl + 'items', args, function (data, response) {
       if (response.statusCode == '201') {
         vscode.window.showInformationMessage('hooray! successfully uploaded')
         let article = vscode.window.activeTextEditor
@@ -55,7 +54,7 @@ class QiitaAPI {
   patch(body, title, options) {
     let tags = []
     options.tags.forEach(function (name) { tags.push({ name: name }) })
-    var args = {
+    let args = {
       data:
       {
         "body": body,
@@ -65,7 +64,7 @@ class QiitaAPI {
         "private": options.private,
         "tags": tags,
         "title": title,
-        "tweet": false
+        "tweet": options.tweet
       },
       headers: this.headers
     }
@@ -80,6 +79,5 @@ class QiitaAPI {
     })
   }
 }
-
 
 module.exports = QiitaAPI;
