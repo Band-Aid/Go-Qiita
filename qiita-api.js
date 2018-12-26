@@ -44,7 +44,7 @@ class QiitaAPI {
         })
       }
       else if (response.statusCode >= '400') {
-        vscode.window.showInformationMessage('failed to upload with error ' + response.statusCode)
+        vscode.window.showErrorMessage(`failed to upload with error ${response.statusCode} ${data.message}`)
       }
     })
     console.log("logging reponse ")
@@ -74,7 +74,7 @@ class QiitaAPI {
         vscode.window.showInformationMessage('hooray! successfully uploaded')
       }
       else if (response.statusCode >= '400') {
-        vscode.window.showInformationMessage('failed to upload with error ' + response.statusCode)
+        vscode.window.showErrorMessage(`failed to upload with error ${response.statusCode} ${data.message}`)
       }
     })
   }
