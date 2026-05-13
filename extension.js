@@ -4,6 +4,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const QiitaAPI = require('./qiita-api')
+const QiitaJson = require('./qiita-json')
 const Qiita = new QiitaAPI
 const path = require('path')
 // this method is called when your extension is activated
@@ -37,7 +38,7 @@ function activate(context) {
         }
         else {
             let uploadtitle = title.replace(".md", "")
-            Qiita.post(body, uploadtitle, JSON.parse(options))
+            Qiita.post(body, uploadtitle, QiitaJson.parseOptions(options))
         }
 
         //vscode.window.showInformationMessage(text+ ' ' + title);
@@ -46,12 +47,12 @@ function activate(context) {
 
     let createTemplate = vscode.commands.registerCommand('extension.createTemplate', function () {
         let document = vscode.window.activeTextEditor
-        let template = { "id": "", "private": true, "tags": [""],"tweet": false }
-        if (!createTemplate)
+        let template = QiitaJson.createTemplate()
+        if (!document)
             return; // No open text editor
         document.edit((builder) => {
             let startPos = document.document.positionAt(0)
-            builder.insert(startPos, JSON.stringify(template) + '\n')
+            builder.insert(startPos, QiitaJson.stringifyOptions(template) + '\n')
         })
     })
 
@@ -65,7 +66,7 @@ function activate(context) {
         let uploadtitle = title.replace(".md", "")
         let tagline = article.document.lineAt(1);
         let tags = article.document.getText(new vscode.Range(0, 0, 1, tagline.range.end.character))
-        let options = JSON.parse(tags)
+        let options = QiitaJson.parseOptions(tags)
         Qiita.patch(body, uploadtitle, options)
     })
 
@@ -73,7 +74,7 @@ function activate(context) {
         let article = vscode.window.activeTextEditor
         let tagline = article.document.lineAt(1);
         let tags = article.document.getText(new vscode.Range(0, 0, 1, tagline.range.end.character))
-        let options = JSON.parse(tags)
+        let options = QiitaJson.parseOptions(tags)
         if(!options.id)
             return
         else
